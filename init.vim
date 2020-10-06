@@ -30,7 +30,8 @@ if empty(glob('~/.config/nvim/_machine_specific.vim'))
 	let has_machine_specific_file = 0
 	silent! exec "!cp ~/.config/nvim/default_configs/_machine_specific_default.vim ~/.config/nvim/_machine_specific.vim"
 endif
-source $XDG_CONFIG_HOME/nvim/_machine_specific.vim
+" -> source $XDG_CONFIG_HOME/nvim/_machine_specific.vim
+source ~/.config/nvim/_machine_specific.vim
 
 
 " ====================
@@ -127,7 +128,7 @@ let g:terminal_color_14 = '#9AEDFE'
 " ===
 " Set <LEADER> as <SPACE>, ; as :
 let mapleader=" "
-noremap ; :
+" -> noremap ; :
 
 " Save & quit
 noremap Q :q<CR>
@@ -137,12 +138,12 @@ noremap S :w<CR>
 " Open the vimrc file anytime
 noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 
-" Undo operations
-noremap l u
-
-" Insert Key
-noremap k i
-noremap K I
+" -> " Undo operations
+" -> noremap l u
+" -> 
+" -> " Insert Key
+" -> noremap k i
+" -> noremap K I
 
 " make Y to copy till the end of the line
 nnoremap Y y$
@@ -182,35 +183,38 @@ noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 " < n   i >
 "     e
 "     v
-noremap <silent> u k
-noremap <silent> n h
-noremap <silent> e j
-noremap <silent> i l
-noremap <silent> gu gk
-noremap <silent> ge gj
+" -> noremap <silent> u k
+" -> noremap <silent> n h
+" -> noremap <silent> e j
+" -> noremap <silent> i l
+" -> noremap <silent> gu gk
+" -> noremap <silent> ge gj
 
 " U/E keys for 5 times u/e (faster navigation)
-noremap <silent> U 5k
-noremap <silent> E 5j
+noremap <silent> K 5k
+noremap <silent> J 5j
 
-" N key: go to the start of the line
-noremap <silent> N 0
-" I key: go to the end of the line
-noremap <silent> I $
+" -> Maybe no use.
+" -> " N key: go to the start of the line
+" -> noremap <silent> N 0
+" -> " I key: go to the end of the line
+" -> noremap <silent> I $
 
 " Faster in-line navigation
 noremap W 5w
 noremap B 5b
 
 " set h (same as n, cursor left) to 'end of word'
-noremap h e
+" -> noremap h e
 
-" Ctrl + U or E will move up/down the view port without moving the cursor
-noremap <C-U> 5<C-y>
-noremap <C-E> 5<C-e>
+" -> Maybe no use.
+" -> " Ctrl + U or E will move up/down the view port without moving the cursor
+" -> noremap <C-K> 5<C-y>
+" -> noremap <C-J> 5<C-j>
 
 
-source $XDG_CONFIG_HOME/nvim/cursor.vim
+" -> source $XDG_CONFIG_HOME/nvim/cursor.vim
+source ~/.config/nvim/cursor.vim
 
 " ===
 " === Insert Mode Cursor Movement
@@ -218,24 +222,26 @@ source $XDG_CONFIG_HOME/nvim/cursor.vim
 inoremap <C-a> <ESC>A
 
 
-" ===
-" === Command Mode Cursor Movement
-" ===
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
-cnoremap <C-b> <Left>
-cnoremap <C-f> <Right>
-cnoremap <M-b> <S-Left>
-cnoremap <M-w> <S-Right>
+" -> Maybe no use.
+" -> " ===
+" -> " === Command Mode Cursor Movement
+" -> " ===
+" -> cnoremap <C-a> <Home>
+" -> cnoremap <C-e> <End>
+" -> cnoremap <C-p> <Up>
+" -> cnoremap <C-n> <Down>
+" -> cnoremap <C-b> <Left>
+" -> cnoremap <C-f> <Right>
+" -> cnoremap <M-b> <S-Left>
+" -> cnoremap <M-w> <S-Right>
 
 
-" ===
-" === Searching
-" ===
-noremap - N
-noremap = n
+" -> Maybe no use.
+" -> " ===
+" -> " === Searching
+" -> " ===
+" -> noremap - N
+" -> noremap = n
 
 
 " ===
@@ -243,19 +249,19 @@ noremap = n
 " ===
 " Use <space> + new arrow keys for moving the cursor around windows
 noremap <LEADER>w <C-w>w
-noremap <LEADER>u <C-w>k
-noremap <LEADER>e <C-w>j
-noremap <LEADER>n <C-w>h
-noremap <LEADER>i <C-w>l
+noremap <LEADER>k <C-w>k
+noremap <LEADER>j <C-w>j
+noremap <LEADER>h <C-w>h
+noremap <LEADER>l <C-w>l
 
 " Disable the default s key
 noremap s <nop>
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
-noremap su :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-noremap se :set splitbelow<CR>:split<CR>
-noremap sn :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
-noremap si :set splitright<CR>:vsplit<CR>
+noremap sk :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
+noremap sj :set splitbelow<CR>:split<CR>
+noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+noremap sl :set splitright<CR>:vsplit<CR>
 
 " Resize splits with arrow keys
 noremap <up> :res +5<CR>
@@ -264,7 +270,7 @@ noremap <left> :vertical resize-5<CR>
 noremap <right> :vertical resize+5<CR>
 
 " Place the two screens up and down
-noremap sh <C-w>t<C-w>K
+noremap sH <C-w>t<C-w>K
 " Place the two screens side by side
 noremap sv <C-w>t<C-w>H
 
@@ -282,18 +288,19 @@ noremap <LEADER>q <C-w>j:q<CR>
 " Create a new tab with tu
 noremap tu :tabe<CR>
 " Move around tabs with tn and ti
-noremap tn :-tabnext<CR>
-noremap ti :+tabnext<CR>
+noremap th :-tabnext<CR>
+noremap tl :+tabnext<CR>
 " Move the tabs with tmn and tmi
-noremap tmn :-tabmove<CR>
-noremap tmi :+tabmove<CR>
+noremap tmh :-tabmove<CR>
+noremap tml :+tabmove<CR>
 
 
 " ===
 " === Markdown Settings
 " ===
 " Snippets
-source $XDG_CONFIG_HOME/nvim/md-snippets.vim
+" -> source $XDG_CONFIG_HOME/nvim/md-snippets.vim
+source ~/.config/nvim/md-snippets.vim
 " auto spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 
@@ -310,7 +317,7 @@ inoremap <C-u> <ESC>lx$p
 " Opening a terminal window
 noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
 
-" Press space twice to jump to the next '<++>' and edit it
+" Press space twice to jump to the next '' and edit it
 noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 " Spelling Check with <space>sc
@@ -362,7 +369,9 @@ func! CompileRunGcc()
 		:term python3 %
 	elseif &filetype == 'html'
 		silent! exec "!".g:mkdp_browser." % &"
+		" -> silent! exec "!chrome % &"
 	elseif &filetype == 'markdown'
+		"exec "MarkdownPreview"
 		exec "InstantMarkdownPreview"
 	elseif &filetype == 'tex'
 		silent! exec "VimtexStop"
@@ -489,6 +498,8 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown', 'vim-plug'] }
 Plug 'dkarter/bullets.vim'
+" ->
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install()  }, 'for': ['markdown', 'vim-plug'] }
 
 " Other filetypes
 " Plug 'jceb/vim-orgmode', {'for': ['vim-plug', 'org']}
@@ -506,7 +517,7 @@ Plug 'godlygeek/tabular' " ga, or :Tabularize <regex> to align
 Plug 'tpope/vim-capslock'	" Ctrl+L (insert) to toggle capslock
 Plug 'easymotion/vim-easymotion'
 " Plug 'Konfekt/FastFold'
-"Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-peekaboo'
 "Plug 'wellle/context.vim'
 Plug 'svermeulen/vim-subversive'
 Plug 'theniceboy/argtextobj.vim'
@@ -541,7 +552,7 @@ Plug 'itchyny/calendar.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'luochen1990/rainbow'
 Plug 'mg979/vim-xtabline'
-Plug 'wincent/terminus'
+" -> Plug 'wincent/terminus'
 
 " Other useful utilities
 Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
@@ -671,13 +682,14 @@ nnoremap <silent><nowait> <LEADER>d :CocList diagnostics<cr>
 nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
 nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
 nnoremap <c-c> :CocCommand<CR>
+
 " Text Objects
-xmap kf <Plug>(coc-funcobj-i)
+xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
-omap kf <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
-xmap kc <Plug>(coc-classobj-i)
-omap kc <Plug>(coc-classobj-i)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 " Useful commands
@@ -722,6 +734,8 @@ let g:instant_markdown_autostart = 0
 " let g:instant_markdown_allow_external_content = 0
 " let g:instant_markdown_mathjax = 1
 let g:instant_markdown_autoscroll = 1
+" -> 
+" -> let g:instant_markdown_browser = "!chrome % & --new-window"
 
 
 " ===
@@ -827,6 +841,7 @@ let g:ctrlp_cmd = 'CtrlP'
 " let g:bookmark_location_list = 1
 
 
+" -> 
 " ===
 " === Undotree
 " ===
@@ -838,10 +853,10 @@ let g:undotree_WindowLayout = 2
 let g:undotree_DiffpanelHeight = 8
 let g:undotree_SplitWidth = 24
 function g:Undotree_CustomMap()
-	nmap <buffer> u <plug>UndotreeNextState
-	nmap <buffer> e <plug>UndotreePreviousState
-	nmap <buffer> U 5<plug>UndotreeNextState
-	nmap <buffer> E 5<plug>UndotreePreviousState
+	nmap <buffer> k <plug>UndotreeNextState
+	nmap <buffer> j <plug>UndotreePreviousState
+	nmap <buffer> K 5<plug>UndotreeNextState
+	nmap <buffer> J 5<plug>UndotreePreviousState
 endfunc
 
 
@@ -966,6 +981,7 @@ let g:vimtex_motion_enabled = 0
 let maplocalleader=' '
 
 
+" ->
 " ===
 " === vim-calendar
 " ===
@@ -976,17 +992,18 @@ let g:calendar_google_task = 1
 augroup calendar-mappings
 	autocmd!
 	" diamond cursor
-	autocmd FileType calendar nmap <buffer> u <Plug>(calendar_up)
-	autocmd FileType calendar nmap <buffer> n <Plug>(calendar_left)
-	autocmd FileType calendar nmap <buffer> e <Plug>(calendar_down)
-	autocmd FileType calendar nmap <buffer> i <Plug>(calendar_right)
-	autocmd FileType calendar nmap <buffer> <c-u> <Plug>(calendar_move_up)
-	autocmd FileType calendar nmap <buffer> <c-n> <Plug>(calendar_move_left)
-	autocmd FileType calendar nmap <buffer> <c-e> <Plug>(calendar_move_down)
-	autocmd FileType calendar nmap <buffer> <c-i> <Plug>(calendar_move_right)
-	autocmd FileType calendar nmap <buffer> k <Plug>(calendar_start_insert)
-	autocmd FileType calendar nmap <buffer> K <Plug>(calendar_start_insert_head)
+	autocmd FileType calendar nmap <buffer> k <Plug>(calendar_up)
+	autocmd FileType calendar nmap <buffer> h <Plug>(calendar_left)
+	autocmd FileType calendar nmap <buffer> j <Plug>(calendar_down)
+	autocmd FileType calendar nmap <buffer> l <Plug>(calendar_right)
+	autocmd FileType calendar nmap <buffer> <c-k> <Plug>(calendar_move_up)
+	autocmd FileType calendar nmap <buffer> <c-h> <Plug>(calendar_move_left)
+	autocmd FileType calendar nmap <buffer> <c-j> <Plug>(calendar_move_down)
+	autocmd FileType calendar nmap <buffer> <c-l> <Plug>(calendar_move_right)
+	autocmd FileType calendar nmap <buffer> i <Plug>(calendar_start_insert)
+	autocmd FileType calendar nmap <buffer> I <Plug>(calendar_start_insert_head)
 	" unmap <C-n>, <C-p> for other plugins
+	" ->x 
 	autocmd FileType calendar nunmap <buffer> <C-n>
 	autocmd FileType calendar nunmap <buffer> <C-p>
 augroup END
@@ -1293,16 +1310,17 @@ let g:dart_style_guide = 2
 let g:dart_format_on_save = 1
 let g:dartfmt_options = ["-l 100"]
 
-
-" ===
-" === tcomment_vim
-" ===
-nnoremap ci cl
+" ->
+" -> " ===
+" -> " === tcomment_vim
+" -> " ===
+" -> nnoremap ci cl
 let g:tcomment_textobject_inlinecomment = ''
-nmap <LEADER>cn g>c
-vmap <LEADER>cn g>
-nmap <LEADER>cu g<c
-vmap <LEADER>cu g<
+nmap <LEADER>ch g>c
+vmap <LEADER>ch g>
+nmap <LEADER>ck g<c
+vmap <LEADER>ck g<
+" ->
 
 
 " ===
@@ -1313,10 +1331,11 @@ let g:nrrw_rgn_nomap_Nr = 1
 noremap <c-y> :NR<CR>
 
 
+" ->
 " ===
 " === any-jump
 " ===
-nnoremap j :AnyJump<CR>
+nnoremap e :AnyJump<CR>
 let g:any_jump_window_width_ratio  = 0.8
 let g:any_jump_window_height_ratio = 0.9
 

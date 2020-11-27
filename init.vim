@@ -371,8 +371,8 @@ func! CompileRunGcc()
 		silent! exec "!".g:mkdp_browser." % &"
 		" -> silent! exec "!chrome % &"
 	elseif &filetype == 'markdown'
-		"exec "MarkdownPreview"
-		exec "InstantMarkdownPreview"
+		exec "MarkdownPreview"
+		" -> exec "InstantMarkdownPreview"
 	elseif &filetype == 'tex'
 		silent! exec "VimtexStop"
 		silent! exec "VimtexCompile"
@@ -494,7 +494,7 @@ Plug 'keith/swift.vim'
 Plug 'arzg/vim-swift'
 
 " Markdown
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+" -> Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['text', 'markdown', 'vim-plug'] }
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['gitignore', 'markdown', 'vim-plug'] }
 Plug 'dkarter/bullets.vim'
